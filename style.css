@@ -5,7 +5,7 @@
     padding: 0;
 }
 
-.logowanieglowny{
+.glowny{
  display: flex;
  width: 100vw;
  height: 100vh;
@@ -33,7 +33,7 @@ form{
 button,input{
     margin: 10px;
     width: 200px;
-    border-radius: 30px;
+    border-radius: 30px; 
     height: 40px;
     border-color: transparent;
 }
@@ -46,7 +46,6 @@ input{
     border: 1px solid black;
 }
 p{
-
 font-family: sans-serif;
 font-weight: 300;
 color: red;

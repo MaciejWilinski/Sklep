@@ -24,7 +24,7 @@ if(isset($_POST["submit"])){
     <title>Logowanie</title>
 </head>
 <body>
-    <div class="logowanieglowny">
+    <div class="glowny">
     <h2>Logowanie</h2>
         <form class= "" action="" method="post" autocomplete="off">
 

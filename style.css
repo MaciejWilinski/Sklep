@@ -1,1 +1,53 @@
 
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.logowanieglowny{
+ display: flex;
+ width: 100vw;
+ height: 100vh;
+ flex-direction: column;
+ justify-content: center;
+ align-items: center;
+ background-color: royalblue;
+}
+h2{
+    margin-bottom: 10px;
+}
+form{
+    width: 400px;
+    height: auto;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    border-radius: 30px;
+    box-shadow: 8px 8px 49px 2px rgba(255, 255, 255, 1);
+}
+button,input{
+    margin: 10px;
+    width: 200px;
+    border-radius: 30px;
+    height: 40px;
+    border-color: transparent;
+}
+button{
+    background-color: royalblue;
+    font-size: 18px;
+    color: white;
+}
+input{
+    border: 1px solid black;
+}
+p{
+
+font-family: sans-serif;
+font-weight: 300;
+color: red;
+
+}

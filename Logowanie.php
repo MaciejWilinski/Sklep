@@ -22,6 +22,7 @@ if(isset($_POST["submit"])){
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Logowanie</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="glowny">
@@ -35,7 +36,6 @@ if(isset($_POST["submit"])){
             <input type="password" name="haslo" id="haslo" required value=""> <br>
 
             <button type="submit" name="submit">Zaloguj</button>
-        </form>
         <p>Nie posiadasz jeszcze konta? <a href="Rejestracja.php">Zarejestruj się</a></p>
     </div>
 </body>

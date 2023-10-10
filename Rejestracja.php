@@ -18,12 +18,14 @@ if(isset($_POST["submit"])){
             mysqli_query($conn,$query);
             echo
             "<script> alert('Rejestracja sie powiodła') </script>";
+            header("Location: Logowanie.php");
         }
         else {
             echo "<script> alert('Hasła nie są takie same'); </script>";
         } 
     }
 }
+
 ?>
 
 <!DOCTYPE html>

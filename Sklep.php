@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Strona logowania</title>
+    <title>Strona główna</title>
     <style>
 header {
     background-color: royalblue;

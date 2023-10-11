@@ -9,7 +9,7 @@ if(isset($_POST["submit"])){
         if($haslo == $row["haslo"]){
             $_SESSION["login"]=true;
             $_SESSION["id"]=$rowp["id"];
-            header("Location: Sklep.html");
+            header("Location: Sklep.php");
         }else{echo "<script> alert('Złe hasło') </script>";}
     }
     else{echo "<script> alert('Zły email') </script>";}

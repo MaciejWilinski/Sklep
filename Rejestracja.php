@@ -61,4 +61,15 @@ if(isset($_POST["submit"])){
         </form>
     <p>Masz już konto? <a href="Logowanie.php">Zaloguj sie</p>
 </body>
+<script>
+function checkEmail()
+{
+  var email = document.forms.form1.email.value;
+  var re = /^[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)*@([a-zA-Z0-9_-]+)(\.[a-zA-Z0-9_-]+)*(\.[a-zA-Z]{2,4})$/i;
+  if(email.match(re) == null)
+      alert('Ten adres email jest nieprawidłowy');
+  else
+      alert('Poprawnie zarejestrowano');
+}
+</script>
 </html>

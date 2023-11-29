@@ -1,20 +1,35 @@
 <?php
 require 'Baza.php';
-if(isset($_POST["submit"])){
+
+if (isset($_POST["submit"])) {
     $email = $_POST["email"];
     $password = $_POST["haslo"];
-    $result = mysqli_query($conn, "SELECT * FROM użytkownicy WHERE email = '$email'");
-    $row = mysqli_num_rows($result);
-    if(mysqli_num_rows($result)){
-        if($haslo == $row["haslo"]){
-            $_SESSION["login"]=true;
-            $_SESSION["id"]=$rowp["id"];
-            header("Location: Sklep.php");
-        }else{echo "<script> alert('Złe hasło') </script>";}
+
+    if ($email == "admin@gmail.com" && $password == "admin123") {
+        header("Location: AdminSklepZalogowany.php");
+        exit();
     }
-    else{echo "<script> alert('Zły email') </script>";}
+
+    $result = mysqli_query($conn, "SELECT * FROM użytkownicy WHERE email = '$email'");
+    $row = mysqli_fetch_assoc($result);
+
+    if ($row) {
+        if ($password == $row["haslo"]) {
+            session_start();
+            $_SESSION["login"] = true;
+            $_SESSION["id"] = $row["id"];
+            $_SESSION["imie"] = $row["imie"];
+            header("Location: SklepZalogowany.php");
+            exit();
+        } else {
+            echo "<script> alert('Złe hasło') </script>";
+        }
+    } else {
+        echo "<script> alert('Zły email') </script>";
+    }
 }
-    ?>
+?>
+    
     <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -39,15 +54,4 @@ if(isset($_POST["submit"])){
         <p>Nie posiadasz jeszcze konta? <a href="Rejestracja.php">Zarejestruj się</a></p>
     </div>
 </body>
-<script>
-function checkEmail()
-{
-  var email = document.forms.form1.email.value;
-  var re = /^[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)*@([a-zA-Z0-9_-]+)(\.[a-zA-Z0-9_-]+)*(\.[a-zA-Z]{2,4})$/i;
-  if(email.match(re) == null)
-      alert('Ten adres email jest nieprawidłowy');
-  else
-      alert('Zalogowano poprawnie');
-}
-</script>
 </html>

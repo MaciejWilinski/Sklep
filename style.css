@@ -12,11 +12,10 @@
  flex-direction: column;
  justify-content: center;
  align-items: center;
- background-color: royalblue;
+ background-color:  #4caf50;;
 }
 h2{
     margin-bottom: 10px;
-    text-align: center;
 }
 form{
     width: 400px;
@@ -39,7 +38,7 @@ button,input{
     border-color: transparent;
 }
 button{
-    background-color: royalblue;
+    background-color:  #4caf50;
     font-size: 18px;
     color: white;
 }

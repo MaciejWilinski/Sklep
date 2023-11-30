@@ -147,5 +147,17 @@ body {
         </div>
     </div>
     </header>
+    <div id="produkty-container">
+        <?php
+        while ($row = mysqli_fetch_assoc($produktyResult)) {
+            echo '<div class="product-tile">';
+            echo '<img class="product-img" src="' . $row['img'] . '" alt="' . $row['nazwa'] . '">';
+            echo '<h3>' . $row['nazwa'] . '</h3>';
+            echo '<p>Cena: ' . $row['cena'] . ' PLN</p>';
+            echo '<button class="add-to-cart-btn">Dodaj do koszyka</button>';
+            echo '</div>';
+        }
+        ?>
+    </div>
 </body>
 </html>

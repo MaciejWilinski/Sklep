@@ -1,5 +1,24 @@
 <?php
 require 'Baza.php';
+$produktyResult = mysqli_query($conn, "SELECT * FROM `produkty`");
+
+$tileStyle = "
+    display: inline-block;
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin: 10px;
+    text-align: center;
+    width: calc(33.33% - 20px);
+    box-sizing: border-box;
+";
+
+$produktyContainerStyle = "
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 20px;
+";
+
 ?>
 <!DOCTYPE html>
 <html>

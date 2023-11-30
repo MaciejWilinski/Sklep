@@ -103,6 +103,26 @@ body {
 .dropdown:hover .dropdown-content {
     display: block;
 }
+      .product-tile {
+            <?php echo $tileStyle; ?>
+        }
+
+        .product-img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        #produkty-container {
+            <?php echo $produktyContainerStyle; ?>
+        }
+
+        .add-to-cart-btn {
+            background-color: #4caf50;
+            color: white;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+        }
 
     </style>
 </head>

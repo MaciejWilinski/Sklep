@@ -1,5 +1,6 @@
 <?php
 require 'Baza.php';
+
 $produktyResult = mysqli_query($conn, "SELECT * FROM `produkty`");
 
 $tileStyle = "

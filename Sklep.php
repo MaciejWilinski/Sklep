@@ -1,3 +1,25 @@
+<?php
+require 'Baza.php';
+$produktyResult = mysqli_query($conn, "SELECT * FROM `produkty`");
+
+$tileStyle = "
+    display: inline-block;
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin: 10px;
+    text-align: center;
+    width: calc(33.33% - 20px);
+    box-sizing: border-box;
+";
+
+$produktyContainerStyle = "
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 20px;
+";
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -40,6 +62,26 @@
         nav ul li a:hover {
             color: #ecf0f1;
         }
+          .product-tile {
+            <?php echo $tileStyle; ?>
+        }
+
+        .product-img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        #produkty-container {
+            <?php echo $produktyContainerStyle; ?>
+        }
+
+        .add-to-cart-btn {
+            background-color: #4caf50;
+            color: white;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+        }
     </style>
 <body>
     <header>
@@ -54,5 +96,17 @@
             </ul>
         </nav>
     </header>
+     <div id="produkty-container">
+        <?php
+        while ($row = mysqli_fetch_assoc($produktyResult)) {
+            echo '<div class="product-tile">';
+            echo '<img class="product-img" src="' . $row['img'] . '" alt="' . $row['nazwa'] . '">';
+            echo '<h3>' . $row['nazwa'] . '</h3>';
+            echo '<p>Cena: ' . $row['cena'] . ' PLN</p>';
+            echo '<button class="add-to-cart-btn">Dodaj do koszyka</button>';
+            echo '</div>';
+        }
+        ?>
+    </div>
 </body>
 </html>

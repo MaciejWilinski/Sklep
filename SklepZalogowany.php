@@ -1,5 +1,27 @@
 <?php
 require 'Baza.php';
+
+$koszyk = isset($_COOKIE['koszyk']) ? json_decode($_COOKIE['koszyk'], true) : [];
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['dodaj_do_koszyka'])) {
+    $produkt_id = $_POST['produkt_id'];
+
+    $query = "SELECT * FROM `produkty` WHERE id = $produkt_id";
+    $result = mysqli_query($conn, $query);
+
+    if ($result && $row = mysqli_fetch_assoc($result)) {
+        $koszyk[] = [
+            'id' => $row['id'],
+            'nazwa' => $row['nazwa'],
+            'cena' => $row['cena'],
+            'img' => $row['img'],
+            'ilosc' => 1
+        ];
+
+        setcookie('koszyk', json_encode($koszyk), time() + (24 * 60 * 60));
+    }
+}
+
 $produktyResult = mysqli_query($conn, "SELECT * FROM `produkty`");
 
 $tileStyle = "
@@ -100,19 +122,23 @@ $produktyContainerStyle = "
                 <li><a href="kontakt.html">Kontakt</a></li>
                 <li><a href="regulamin.html">Regulamin</a></li>
                 <li><a href="logowanie.php">Wyloguj</a></li>
+                <li><a href="koszyk.php">Koszyk</a></li>
                 <li></li>
             </ul>
         </nav>
     </header>
 
     <div id="produkty-container">
-        <?php
+    <?php
         while ($row = mysqli_fetch_assoc($produktyResult)) {
             echo '<div class="product-tile">';
             echo '<img class="product-img" src="' . $row['img'] . '" alt="' . $row['nazwa'] . '">';
             echo '<h3>' . $row['nazwa'] . '</h3>';
             echo '<p>Cena: ' . $row['cena'] . ' PLN</p>';
-            echo '<button class="add-to-cart-btn">Dodaj do koszyka</button>';
+            echo '<form method="post">';
+            echo '<input type="hidden" name="produkt_id" value="' . $row['id'] . '">';
+            echo '<button type="submit" name="dodaj_do_koszyka" class="add-to-cart-btn">Dodaj do koszyka</button>';
+            echo '</form>';
             echo '</div>';
         }
         ?>

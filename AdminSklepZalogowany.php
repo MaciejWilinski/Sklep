@@ -167,6 +167,7 @@ body {
                 <a href="produkty.php">Produkty</a>
                 <a href="kategorie.php">Kategorie</a>
                 <a href="uzytkownicy.php">Użytkownicy</a>
+                <a href="zamowienia.php">Zamówienia</a></a>
             </div>
         </div>
     </div>
